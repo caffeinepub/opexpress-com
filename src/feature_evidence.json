@@ -1,0 +1,24 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-header-logo-image-element-at-xpath-html-1-body-1-div-1-div-1-header-1-div-1-div-1-img-1-implemented-in-frontend-src-components-layout-siteheader-tsx-to-use-a-new-90s-inspired-retro-neon-wordmark-asset-that-fits-the-app-s-updated-look-only-modify-this-selected-img-element-e-g-its-src-and-any-styling-directly-on-the-img-keeping-the-existing-header-layout-and-behavior-unchanged",
+      "featureTitle": "Update the header logo image element at XPath `/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/img[1]` (implemented in `frontend/src/components/layout/SiteHeader.tsx`) to use a new 90s-inspired retro neon wordmark asset that fits the app’s updated look. Only modify this selected `<img>` element (e.g., its `src` and any styling directly on the `<img>`), keeping the existing header layout and behavior unchanged.",
+      "files": [
+        "frontend/src/components/layout/SiteHeader.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

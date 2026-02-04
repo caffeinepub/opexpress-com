@@ -1,0 +1,46 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-04T22:14:14.306Z",
+  "summary": "REQ-10 partially implemented: the header logo <img> src was updated to the requested generated asset and kept at h-10 w-auto, but additional non-logo header/layout/theme-toggle changes were also made, violating the constraint to only modify the selected <img> element and keep other header elements unchanged.",
+  "missing_requirements": [
+    {
+      "id": "REQ-10",
+      "requirement": "Only modify the selected header <img> element at the provided XPath, keeping the existing header layout and behavior unchanged; no other header elements (theme toggle, spacing, container layout) are changed.",
+      "reason": "The diff shows multiple changes outside the <img> element (header/container classes and theme-toggle button styling), which conflicts with the requirement to keep the rest of the header unchanged.",
+      "evidence": [
+        "frontend/src/components/layout/SiteHeader.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Changed header and container layout/styling (e.g., added `retro-header`, altered container sizing/classes).",
+      "reason": "BuildRequest explicitly restricts changes to only the specified <img> element and forbids redesigning the header layout.",
+      "evidence": [
+        "frontend/src/components/layout/SiteHeader.tsx"
+      ]
+    },
+    {
+      "description": "Modified theme toggle button styling/classes (`retro-button`, `bg-primary`, `text-primary-foreground`, hover styles).",
+      "reason": "BuildRequest explicitly says no other header elements (including theme toggle) should be changed.",
+      "evidence": [
+        "frontend/src/components/layout/SiteHeader.tsx"
+      ]
+    },
+    {
+      "description": "Updated/modified repository summary/state files (`frontend-file-summaries.txt`, `project_state.json`).",
+      "reason": "Not requested by the BuildRequest; scope is limited to updating the selected header logo <img>.",
+      "evidence": [
+        "frontend-file-summaries.txt",
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/layout/SiteHeader.tsx",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update header logo wordmark to new 90s retro neon asset",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "summary": "Swap the SiteHeader logo <img> to use the new 90s-inspired retro neon OPExpress wordmark asset while keeping header layout/behavior unchanged.",
+      "acceptanceCriteria": [
+        "The header renders the updated logo wordmark from `frontend/public/assets/generated`.",
+        "The updated logo is visually legible and fits within the existing header height constraints (current `h-10 w-auto`).",
+        "No other header elements (theme toggle, spacing, container layout) are changed."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/opexpress-wordmark-v2.dim_1200x300.png",
+          "operation": "create",
+          "description": "Add the generated 90s retro neon wordmark PNG (transparent background) as a static asset for the header logo."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Modify ONLY the selected header logo <img> element to point `src` to `frontend/public/assets/generated/opexpress-wordmark-v2.dim_1200x300.png` and adjust only <img>-local styling if needed to maintain legibility within the existing `h-10 w-auto` constraint (no other header changes)."
+        }
+      ]
+    }
+  ]
+}

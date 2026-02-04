@@ -1,0 +1,17 @@
+{
+  "frontend/index.html": "HTML entry point with OPExpress.com branding, favicon link, and meta description for the anonymous posting platform.",
+  "frontend/src/index.css": "Global styles with 90s-inspired neon color palette (cyan/magenta/lime) using OKLCH, plus retro utility classes for beveled panels, pixel borders, scanline backgrounds, and neon glow effects for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with 90s aesthetic extensions including Impact/Arial Black fonts, retro box shadows (hard-edged offsets), zero border radius, and blink animation for authentic 90s web feel.",
+  "frontend/src/App.tsx": "Main application component with 90s-styled hero section featuring neon glow text, retro panel layouts, scanline background, and bold uppercase typography throughout the anonymous posting experience.",
+  "frontend/src/components/layout/SiteHeader.tsx": "Sticky header with retro panel styling, updated to use the new 90s-inspired neon wordmark logo (v2), multi-colored drop shadow on logo, and 90s-styled theme toggle button with beveled borders and hard shadows.",
+  "frontend/src/components/posts/PostComposer.tsx": "Anonymous post creation form with 90s retro styling including beveled panels, inset borders, monospace inputs, and bold uppercase buttons with hard shadows and press effects.",
+  "frontend/src/components/posts/PostFeed.tsx": "Feed component with 90s-styled loading states, retro error panels, and empty state messaging using bold uppercase typography and beveled panel treatments.",
+  "frontend/src/components/posts/PostCard.tsx": "Individual post card with 90s retro panel styling (beveled borders, hard shadows), monospace content font, retro badge treatments for hashtags, and hover transform effects.",
+  "frontend/src/components/posts/PostDetailDialog.tsx": "Modal dialog for post details with retro panel styling, beveled inset media frames, bold uppercase badges, and hard-bordered timestamp divider matching the 90s aesthetic.",
+  "frontend/src/components/posts/HashtagFilterBar.tsx": "Hashtag filtering UI with 90s retro input styling (monospace font, inset borders), neon-colored active filter banner with beveled panel treatment, and bold uppercase typography.",
+  "frontend/src/hooks/usePosts.ts": "React Query hook for fetching all posts or posts filtered by hashtag from the backend.",
+  "frontend/src/hooks/useCreatePost.ts": "React Query mutation hook for creating new anonymous posts and invalidating the feed cache.",
+  "frontend/src/lib/validation.ts": "Client-side validation utilities for post content and media files with English error messages.",
+  "frontend/src/lib/hashtags.ts": "Hashtag parsing and normalization utilities for extracting and cleaning hashtag strings.",
+  "frontend/src/lib/utils.ts": "Utility functions including className merging and timestamp formatting for relative time display."
+}

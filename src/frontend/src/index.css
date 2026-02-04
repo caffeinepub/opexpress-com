@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0rem;
+        /* 90s Light Mode - High contrast with neon accents */
+        --background: 0.98 0.02 280;
+        --foreground: 0.15 0.05 280;
+        --card: 0.95 0.03 280;
+        --card-foreground: 0.15 0.05 280;
+        --popover: 0.95 0.03 280;
+        --popover-foreground: 0.15 0.05 280;
+        /* Neon cyan primary */
+        --primary: 0.65 0.25 200;
+        --primary-foreground: 0.98 0.02 280;
+        /* Hot magenta secondary */
+        --secondary: 0.7 0.28 330;
+        --secondary-foreground: 0.98 0.02 280;
+        --muted: 0.88 0.03 280;
+        --muted-foreground: 0.45 0.04 280;
+        --accent: 0.75 0.26 140;
+        --accent-foreground: 0.15 0.05 280;
+        /* Bright red destructive */
+        --destructive: 0.6 0.28 15;
+        --destructive-foreground: 0.98 0.02 280;
+        --border: 0.25 0.05 280;
+        --input: 0.92 0.03 280;
+        --ring: 0.65 0.25 200;
+        --chart-1: 0.65 0.25 200;
+        --chart-2: 0.7 0.28 330;
+        --chart-3: 0.75 0.26 140;
+        --chart-4: 0.7 0.25 50;
+        --chart-5: 0.65 0.26 280;
+    }
+
+    .dark {
+        /* 90s Dark Mode - Deep blacks with neon pops */
+        --background: 0.12 0.04 280;
+        --foreground: 0.95 0.03 280;
+        --card: 0.18 0.05 280;
+        --card-foreground: 0.95 0.03 280;
+        --popover: 0.15 0.05 280;
+        --popover-foreground: 0.95 0.03 280;
+        /* Electric cyan */
+        --primary: 0.75 0.28 200;
+        --primary-foreground: 0.12 0.04 280;
+        /* Hot pink secondary */
+        --secondary: 0.75 0.3 330;
+        --secondary-foreground: 0.12 0.04 280;
+        --muted: 0.25 0.05 280;
+        --muted-foreground: 0.6 0.03 280;
+        --accent: 0.8 0.28 140;
+        --accent-foreground: 0.12 0.04 280;
+        /* Bright red */
+        --destructive: 0.65 0.3 15;
+        --destructive-foreground: 0.95 0.03 280;
+        --border: 0.35 0.06 280;
+        --input: 0.22 0.05 280;
+        --ring: 0.75 0.28 200;
+        --chart-1: 0.75 0.28 200;
+        --chart-2: 0.75 0.3 330;
+        --chart-3: 0.8 0.28 140;
+        --chart-4: 0.75 0.27 50;
+        --chart-5: 0.7 0.28 280;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    
+    /* 90s Retro UI Utilities */
+    .retro-panel {
+        @apply border-4 border-border bg-card;
+        box-shadow: 
+            4px 4px 0 0 oklch(var(--border)),
+            8px 8px 0 0 oklch(var(--muted));
+    }
+    
+    .retro-panel-inset {
+        @apply border-4 border-border bg-muted;
+        box-shadow: 
+            inset 2px 2px 0 0 oklch(var(--border) / 0.5),
+            inset -2px -2px 0 0 oklch(var(--card) / 0.5);
+    }
+    
+    .retro-button {
+        @apply border-4 border-border font-bold uppercase tracking-wider;
+        box-shadow: 
+            4px 4px 0 0 oklch(var(--border));
+        transition: all 0.1s ease;
+    }
+    
+    .retro-button:hover:not(:disabled) {
+        transform: translate(2px, 2px);
+        box-shadow: 
+            2px 2px 0 0 oklch(var(--border));
+    }
+    
+    .retro-button:active:not(:disabled) {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+    }
+    
+    .retro-input {
+        @apply border-4 border-border bg-input font-mono;
+        box-shadow: 
+            inset 3px 3px 0 0 oklch(var(--border) / 0.3);
+    }
+    
+    .retro-badge {
+        @apply border-2 border-current font-bold uppercase text-xs tracking-wide px-3 py-1;
+    }
+    
+    .scanline-bg {
+        background-image: 
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                oklch(var(--border) / 0.03) 2px,
+                oklch(var(--border) / 0.03) 4px
+            );
+    }
+    
+    .neon-glow {
+        text-shadow: 
+            0 0 10px currentColor,
+            0 0 20px currentColor,
+            0 0 30px currentColor;
+    }
+    
+    .retro-header {
+        @apply border-b-4 border-border bg-card;
+        box-shadow: 0 4px 0 0 oklch(var(--border));
+    }
+}

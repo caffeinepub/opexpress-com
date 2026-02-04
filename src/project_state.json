@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "OPExpress.com is a web app for anonymous user-generated posts (no account required) supporting text plus optional image/video media uploads, hashtag tagging and filtering, a browsable feed with post detail dialogs, and a light/dark theme toggle. The frontend is styled with a consistent 90s-inspired “retro neon” aesthetic, and the backend is an ICP Motoko canister that stores posts and integrates with a blob-storage module for media.",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "Anonymous post creation without mandatory login",
+      "synonyms": [
+        "Anonymous posting",
+        "No-login posting"
+      ],
+      "description": "Users can create posts without authenticating; the frontend creates an anonymous backend actor when no Internet Identity is present and allows posting directly from the composer.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Post composer with text, optional hashtags, and media upload (image/video)",
+      "synonyms": [
+        "Post composer",
+        "Create post form",
+        "Media attachment"
+      ],
+      "description": "A composer form supports entering post text, optional hashtags, and selecting an image or video file. It provides local previews, removal of selected media, and displays upload progress when sending media as an ExternalBlob.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Client-side post validation and toast notifications",
+      "synonyms": [
+        "Form validation",
+        "Input validation",
+        "Toasts"
+      ],
+      "description": "Before submission, posts are validated (non-empty content/media, max content length, media type and 50MB size limit). Success/error feedback is shown using toast notifications.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Hashtag parsing/normalization utilities",
+      "synonyms": [
+        "Hashtag utilities",
+        "Tag normalization"
+      ],
+      "description": "Frontend utilities parse hashtags from user input, normalize them (lowercase, strip invalid characters), and deduplicate. The filter bar also normalizes entered hashtags.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Hashtag tagging and filtering via UI + backend query",
+      "synonyms": [
+        "Filter by hashtag",
+        "Tag filter bar"
+      ],
+      "description": "Users can filter the feed by a selected hashtag through a filter bar (apply via button/Enter, clear filter). The backend exposes getPostsByHashtag(hashtag) and the frontend queries it when a hashtag is selected.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Main post feed with loading/error/empty states and newest-first ordering (unfiltered)",
+      "synonyms": [
+        "Post feed",
+        "Browse posts"
+      ],
+      "description": "The feed fetches posts from the backend using React Query, shows loading spinners and error/empty states, and sorts the full feed newest-first on the client when not filtering by hashtag.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Post cards with media rendering, hashtags, and relative timestamps",
+      "synonyms": [
+        "Post list item",
+        "Feed card"
+      ],
+      "description": "Each post card displays content, optional image/video media, extracted hashtags as clickable badges, and a human-friendly relative timestamp (e.g., “5 minutes ago”).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Post detail dialog (modal) with clickable hashtags",
+      "synonyms": [
+        "Post modal",
+        "Post details"
+      ],
+      "description": "Clicking a post opens a dialog showing full content, media, hashtags, and timestamp. Clicking a hashtag applies the feed filter and closes the dialog.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "Light/dark theme support with toggle and system default",
+      "synonyms": [
+        "Theme toggle",
+        "Dark mode"
+      ],
+      "description": "The app supports light/dark themes (and system default) via next-themes, with a header toggle control switching the active theme.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "90s-inspired retro neon UI styling across the app",
+      "synonyms": [
+        "Retro theme",
+        "90s restyle"
+      ],
+      "description": "A consistent 90s aesthetic is applied across header, hero, composer, filter bar, feed cards, and dialogs using neon OKLCH color variables, Impact/Courier typography, hard-edged shadows, scanline background, and custom retro utility classes for panels/inputs/buttons/badges.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-11",
+      "title": "Brand asset integration (wordmark + favicon)",
+      "synonyms": [
+        "Logo integration",
+        "Favicon"
+      ],
+      "description": "The OPExpress wordmark is rendered in the sticky header and a generated PNG favicon is referenced from the HTML entry point.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-12",
+      "title": "Backend canister API for posts + blob-storage maintenance endpoints",
+      "synonyms": [
+        "Motoko backend",
+        "ICP canister backend",
+        "Blob storage integration"
+      ],
+      "description": "The Motoko backend supports creating and reading posts (including optional ExternalBlob media, extracted hashtags, and timestamps). It also includes blob-storage mixin endpoints for gateway authorization updates, dead-blob pruning/GC, and cycles top-up/refill operations guarded by principal checks.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-13",
+      "title": "Optional Internet Identity authentication infrastructure for actor creation",
+      "synonyms": [
+        "Internet Identity support",
+        "Authenticated actor"
+      ],
+      "description": "An Internet Identity provider manages AuthClient lifecycle and stored delegation identities; useActor creates an authenticated actor when an identity exists and triggers query refreshes when identity changes.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-header-logo-image-element-at-xpath-html-1-body-1-div-1-div-1-header-1-div-1-div-1-img-1-implemented-in-frontend-src-components-layout-siteheader-tsx-to-use-a-new-90s-inspired-retro-neon-wordmark-asset-that-fits-the-app-s-updated-look-only-modify-this-selected-img-element-e-g-its-src-and-any-styling-directly-on-the-img-keeping-the-existing-header-layout-and-behavior-unchanged",
+      "title": "Update the header logo image element at XPath `/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/img[1]` (implemented in `frontend/src/components/layout/SiteHeader.tsx`) to use a new 90s-inspired retro neon wordmark asset that fits the app’s updated look. Only modify this selected `<img>` element (e.g., its `src` and any styling directly on the `<img>`), keeping the existing header layout and behavior unchanged.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add a search bar to find posts by specific topics/keywords",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add reaction buttons on posts (e.g., like/laugh/etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Update/replace the logo to better match the 90s retro neon aesthetic (fit the new look)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [
+    "Frontend uses React (Vite-style entry) with Tailwind CSS and shadcn/ui primitives, plus custom “retro” utility classes (beveled panels, hard shadows, scanlines, neon glow).",
+    "Data fetching/caching is handled via @tanstack/react-query, with dedicated hooks (usePosts/useCreatePost) and query invalidation on mutations.",
+    "Theming is implemented with next-themes by toggling a CSS class (light/dark/system) and using CSS variables consumed by Tailwind’s OKLCH color tokens.",
+    "ICP integration uses an actor factory (createActorWithConfig) and an authentication layer based on @dfinity/auth-client; the app can operate with an anonymous actor when not authenticated.",
+    "Backend is a Motoko actor exposing CRUD-like queries for posts (create, get, list all, list by hashtag) with incremental IDs and timestamps from Time.now().",
+    "Media is represented as an ExternalBlob and rendered in the frontend using getDirectURL(), with upload progress callbacks wired from the blob wrapper.",
+    "Backend includes a blob-storage mixin that supports authorization (gateway principal list), cycles top-up via a cashier principal env var, and dead-blob GC/cleanup endpoints."
+  ],
+  "known_issues": [
+    "Backend post storage is not stable/persistent across canister upgrades or redeploys (posts are kept only in an in-memory Map).",
+    "Hashtag-filtered results are not sorted newest-first (getPostsByHashtag does not sort; Map value iteration order is not guaranteed).",
+    "Hashtag normalization can be inconsistent: backend extracts raw tags from content (case/punctuation preserved) while the filter UI normalizes to lowercase alphanumerics/underscore, which can cause missed matches for user-typed hashtags in the post body.",
+    "There are two different CSS files named index.css in the repo (frontend/index.css and frontend/src/index.css); only frontend/src/index.css is imported by the app, which may confuse maintenance.",
+    "Internet Identity infrastructure is present despite “no login required”; while the UI doesn’t show login controls here, a stored identity can change actor identity and may conflict with a strict anonymous-only product stance.",
+    "Media type detection in the UI relies on URL heuristics (substring/extension matching) which may misclassify content for nonstandard URLs.",
+    "Hashtags entered in the composer are appended into the post content text (so hashtags appear in the body as well as being displayed as extracted tags), which may be undesirable duplication."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- 90s retro neon wordmark reading \"OPExpress\" on a transparent background, bold arcade-style typography, high-contrast neon accents, clean edges (opexpress-wordmark-v2.dim_1200x300.png)",
+  "generatedImages": [
+    {
+      "filename": "opexpress-wordmark-v2.dim_1200x300.png",
+      "description": "90s retro neon wordmark reading \"OPExpress\" on a transparent background, bold arcade-style typography, high-contrast neon accents, clean edges",
+      "targetWidth": 1200,
+      "targetHeight": 300
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "OPExpress.com",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

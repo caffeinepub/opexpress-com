@@ -1,0 +1,38 @@
+{
+  "kind": "build_request",
+  "title": "Update header logo image to match the new 90s look",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Update the header logo image element at XPath `/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/img[1]` (implemented in `frontend/src/components/layout/SiteHeader.tsx`) to use a new 90s-inspired retro neon wordmark asset that fits the app’s updated look. Only modify this selected `<img>` element (e.g., its `src` and any styling directly on the `<img>`), keeping the existing header layout and behavior unchanged.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Change to fit new look"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header renders the updated logo wordmark from `frontend/public/assets/generated`.",
+        "The updated logo is visually legible and fits within the existing header height constraints (current `h-10 w-auto`).",
+        "No other header elements (theme toggle, spacing, container layout) are changed."
+      ]
+    }
+  ],
+  "constraints": [
+    "Apply changes ONLY to the selected header <img> element identified by the provided XPath."
+  ],
+  "nonGoals": [
+    "Do not redesign the header layout or change any non-logo components.",
+    "Do not change the favicon or other brand assets unless explicitly requested."
+  ],
+  "imageRequirements": {
+    "required": [
+      "90s retro neon wordmark reading \"OPExpress\" on a transparent background, bold arcade-style typography, high-contrast neon accents, clean edges (opexpress-wordmark-v2.dim_1200x300.png)"
+    ],
+    "edits": []
+  }
+}
